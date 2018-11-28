@@ -1,5 +1,6 @@
 package com.atgenee.core
 
+import grails.test.mixin.Mock
 import grails.test.mixin.TestFor
 import spock.lang.Specification
 
@@ -7,6 +8,8 @@ import spock.lang.Specification
  * See the API for {@link grails.test.mixin.web.ControllerUnitTestMixin} for usage instructions
  */
 @TestFor(UserController)
+@Mock([UserService,User])
+//@Integration
 class UserControllerSpec extends Specification {
 
     def setup() {
@@ -16,7 +19,19 @@ class UserControllerSpec extends Specification {
     }
 
     void "test something"() {
-        expect:"fix me"
-            true == false
+        given:
+            def uc = new UserController()
+            uc.index()
+    }
+
+    void "save"() {
+        given:
+            def user = new User()
+            user.age=30
+            user.nickname="Jonny"
+            user.username="lee"
+            user.save(flush:true)
+        expect:
+            User.count() == 1
     }
 }
