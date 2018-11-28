@@ -9,4 +9,14 @@ class User {
     static constraints = {
 
     }
+
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "username='" + username + '\'' +
+                ", nickname='" + nickname + '\'' +
+                ", age=" + age +
+                '}';
+    }
 }
