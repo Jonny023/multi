@@ -31,3 +31,5 @@
     
 ## 说明
 * 项目中依赖的插件、版本等都可以提取成公共文件，这里为了演示就没做处理
+
+[参考](http://sergiodelamo.es/grails-tips-how-to-create-a-multi-project-build-with-grails-3-apps-and-plugins/)
